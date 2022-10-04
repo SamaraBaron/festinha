@@ -1,20 +1,47 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <img src="../../assets/imgFestinha.png" alt="">
+  
+  <h1>Festinha</h1>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="limpar()">
+      <ion-icon name="trash"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="conteudo">
+    <div class="linha">
+      <div class="produto">Adulto</div>
+      <div class="mostrador">
+        <ion-button (click)="removerAdulto1()">-</ion-button>
+        <input type="number" [(ngModel)]="quantidadeAdulto1" (keyup)="calcularTotalConta()">
+        <ion-button (click)="adicionarAdulto1()">+</ion-button>
+      </div>
+    </div>
+
+    <div class="linha">
+      <div class="produto">Criança</div>
+      <div class="mostrador">
+        <ion-button (click)="removerCrianca1()">-</ion-button>
+        <input type="number" [(ngModel)]="quantidadeCrianca1" (keyup)="calcularTotalConta()">
+        <ion-button (click)="adicionarCrianca1()">+</ion-button>
+      </div>
+    </div>
+
+    <div class="linha resultado">
+      <div>Total salgadinho</div>
+      <div>{{ totalSalgadinho }} un</div>
+    </div>
+
+    <div class="linha resultado">
+      <div>Total refrigerante</div>
+      <div>{{ totalRefrigerante }} {{siglaRefri}}</div>
+    </div>
+
+    <div class="linha resultado">
+      <div>Total bolo</div>
+     <div>{{ totalBolo }} {{siglaBolo}}</div>
+    </div>
+
   </div>
 </ion-content>
